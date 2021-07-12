@@ -16,11 +16,7 @@ class StayController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $stay = Stay::with('vehicle', 'vehicle.vehicle_type')->get();
-=======
-        $stay = Stay::with('vehicle')->get();
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
         return response()->json($stay, 200);
     }
 
@@ -32,7 +28,6 @@ class StayController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         // Busca el ID por la matricula, en caso que no exista o este actualmente en el estacionamiento devuelve error sino reserva el estacionamiento
         $vehicle = Vehicle::where('license_plate', format_license_plate($request->license_plate))->with('vehicle_type','stays')->first();
@@ -53,10 +48,6 @@ class StayController extends Controller
             return response()->json(array("error" => array("status" => "404")), 200);
         }
         
-=======
-        $stay = Stay::create($request->all());
-        return response()->json($stay, 201);
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
     }
 
     /**
@@ -93,7 +84,6 @@ class StayController extends Controller
     {
         $stay->delete();
         return response()->json(null, 204);
-<<<<<<< HEAD
     }
 
     public function stayCompleted()
@@ -133,7 +123,5 @@ class StayController extends Controller
         $stay->update($data);
         $stay->minutes = calculate_minutes($stay->start_date_time,$end_date_time);
         return response()->json($stay, 200);
-=======
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
     }
 }

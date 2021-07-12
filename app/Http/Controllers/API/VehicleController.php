@@ -17,11 +17,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $vehicle = Vehicle::with('vehicle_type','stays')->get();
-=======
-        $vehicle = Vehicle::with('vehicle_type')->get();
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
         return response()->json($vehicle, 200);
     }
 
@@ -33,11 +29,7 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $vehicle = Vehicle::with('vehicle_type','stays')->find(Vehicle::create($request->all())->id);
-=======
-        $vehicle = Vehicle::create($request->all());
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
         return response()->json($vehicle, 201);
     }
 
@@ -77,7 +69,6 @@ class VehicleController extends Controller
         return response()->json(null, 204);
     }
 
-<<<<<<< HEAD
     public function reset_counters(){
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         $end_date_time = date("Y-m-d H:i:s");
@@ -95,10 +86,5 @@ class VehicleController extends Controller
     public function generate_payment_report(Request $request){
         $paymentfrequency = PaymentFrequency::with('vehicle_types','vehicle_types.vehicles')->find(2);
         return response()->json($paymentfrequency, 200);
-=======
-    public function reset_counter(Vehicle $vehicle){
-        $vehicle->update(array("minute_counter" => 0));
-        return response()->json($vehicle, 200);
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
     }
 }

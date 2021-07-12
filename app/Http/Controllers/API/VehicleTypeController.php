@@ -39,11 +39,7 @@ class VehicleTypeController extends Controller
      */
     public function show(VehicleType $vehicletype)
     {
-<<<<<<< HEAD
         return response()->json($vehicletype, 200);
-=======
-        return response()->json($vehicleTypes, 200);
->>>>>>> b8acb1704da1ca5d838300e887200515f0464ec2
     }
 
     /**
